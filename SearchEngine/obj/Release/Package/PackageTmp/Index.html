@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Lighthouse Search Engine</title>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="Scripts/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="Scripts/angular.js"></script>
+    <script type="text/javascript" src="Scripts/angular-route.js"></script>
+    <script type="text/javascript" src="Scripts/angular-sanitize.js"></script>
+    <script type="text/javascript" src="App/Scripts/types.js"></script>
+    <script type="text/javascript" src="App/Scripts/app.js"></script>
+    <script type="text/javascript" src="App/Scripts/Controllers/homeController.js"></script>
+    <script type="text/javascript" src="App/Scripts/Services/searchService.js"></script>
+    <link rel="stylesheet" type="text/css" href="/Content/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/Content/lighthouse.css" />
+</head>
+<body ng-app="SearchEngine" style="background-color: orangered;">
+    <header>
+        <h1>LIGHTHOUSE SEARCH ENGINE</h1>
+    </header>
+    <div class="container-fluid">
+        <ng-view></ng-view>
+    </div>
+</body>
+</html>

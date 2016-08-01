@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SearchEngineModelStoreContainer" CdmEntityContainer="SearchEngineEntities">
+    <EntitySetMapping Name="Urls">
+      <EntityTypeMapping TypeName="SearchEngineModel.Url">
+        <MappingFragment StoreEntitySet="Url">
+          <ScalarProperty Name="UrlString" ColumnName="UrlString" />
+          <ScalarProperty Name="UrlId" ColumnName="UrlId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Words">
+      <EntityTypeMapping TypeName="SearchEngineModel.Word">
+        <MappingFragment StoreEntitySet="Word">
+          <ScalarProperty Name="WordString" ColumnName="WordString" />
+          <ScalarProperty Name="WordId" ColumnName="WordId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WordUrlAssociations">
+      <EntityTypeMapping TypeName="SearchEngineModel.WordUrlAssociation">
+        <MappingFragment StoreEntitySet="WordUrlAssociation">
+          <ScalarProperty Name="AssociationId" ColumnName="AssociationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="FK__WordUrlAs__UrlId__164452B1" TypeName="SearchEngineModel.FK__WordUrlAs__UrlId__164452B1" StoreEntitySet="WordUrlAssociation">
+      <EndProperty Name="WordUrlAssociation">
+        <ScalarProperty Name="AssociationId" ColumnName="AssociationId" />
+      </EndProperty>
+      <EndProperty Name="Url">
+        <ScalarProperty Name="UrlId" ColumnName="UrlId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK__WordUrlAs__WordI__15502E78" TypeName="SearchEngineModel.FK__WordUrlAs__WordI__15502E78" StoreEntitySet="WordUrlAssociation">
+      <EndProperty Name="WordUrlAssociation">
+        <ScalarProperty Name="AssociationId" ColumnName="AssociationId" />
+      </EndProperty>
+      <EndProperty Name="Word">
+        <ScalarProperty Name="WordId" ColumnName="WordId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SearchEngineModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Url">
+    <Key>
+      <PropertyRef Name="UrlId" />
+    </Key>
+    <Property Name="UrlId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UrlString" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Word">
+    <Key>
+      <PropertyRef Name="WordId" />
+    </Key>
+    <Property Name="WordId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WordString" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WordUrlAssociation">
+    <Key>
+      <PropertyRef Name="AssociationId" />
+    </Key>
+    <Property Name="AssociationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WordId" Type="int" Nullable="false" />
+    <Property Name="UrlId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__WordUrlAs__UrlId__164452B1">
+    <End Role="Url" Type="Self.Url" Multiplicity="1" />
+    <End Role="WordUrlAssociation" Type="Self.WordUrlAssociation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Url">
+        <PropertyRef Name="UrlId" />
+      </Principal>
+      <Dependent Role="WordUrlAssociation">
+        <PropertyRef Name="UrlId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WordUrlAs__WordI__15502E78">
+    <End Role="Word" Type="Self.Word" Multiplicity="1" />
+    <End Role="WordUrlAssociation" Type="Self.WordUrlAssociation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Word">
+        <PropertyRef Name="WordId" />
+      </Principal>
+      <Dependent Role="WordUrlAssociation">
+        <PropertyRef Name="WordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SearchEngineModelStoreContainer">
+    <EntitySet Name="Url" EntityType="Self.Url" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Word" EntityType="Self.Word" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WordUrlAssociation" EntityType="Self.WordUrlAssociation" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__WordUrlAs__UrlId__164452B1" Association="Self.FK__WordUrlAs__UrlId__164452B1">
+      <End Role="Url" EntitySet="Url" />
+      <End Role="WordUrlAssociation" EntitySet="WordUrlAssociation" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WordUrlAs__WordI__15502E78" Association="Self.FK__WordUrlAs__WordI__15502E78">
+      <End Role="Word" EntitySet="Word" />
+      <End Role="WordUrlAssociation" EntitySet="WordUrlAssociation" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

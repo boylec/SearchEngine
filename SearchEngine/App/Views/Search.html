@@ -1,0 +1,28 @@
+﻿<form class="searchprompt col-sm-12">
+    <div class="col-sm-12">
+        <h2>Enter your search terms</h2>
+    </div>
+    <div class="col-sm-12">
+        <input type="text" class="form-control" ng-model="searchInput.searchString" placeholder="Search..."/>
+    </div>
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4" style="margin-top: 10px;">
+        <input type="button" ng-disabled="searchInput.searchString.length == 0" ng-click="doSearch()" class="btn btn-block btn-danger" value="GO!"/>
+    </div>
+    <div class="col-sm-4"></div>
+</form>
+<div class="searchresults col-sm-12" ng-show="searchPerformed == true">
+    <div ng-show="searchError == null">
+        <div ng-model="url" ng-repeat="result in searchResult.urls">
+            <a href="{{url}}">{{url}}</a>
+        </div>
+        <div class="resultcount" ng-show="searchResult.count > 0"># of Search Results: {{searchResult.count}}</div>
+        <div class="resultcount" ng-hide="searchResult.count > 0">There are no websites that contain keywords matching your search!</div>    
+    </div>
+    <div ng-hide="searchError == null">
+        <h1>ERROR!</h1>
+        <div>
+            {{searchError}}
+        </div>
+    </div>
+</div>

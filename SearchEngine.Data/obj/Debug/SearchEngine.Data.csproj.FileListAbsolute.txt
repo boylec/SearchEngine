@@ -1,0 +1,10 @@
+C:\Users\Casey\Documents\Visual Studio 2015\Projects\SearchEngine\SearchEngine.Data\obj\Debug\SearchEngine.Data.csprojResolveAssemblyReference.cache
+C:\Users\Casey\Documents\Visual Studio 2015\Projects\SearchEngine\SearchEngine.Data\bin\Debug\SearchEngine.Data.dll.config
+C:\Users\Casey\Documents\Visual Studio 2015\Projects\SearchEngine\SearchEngine.Data\bin\Debug\SearchEngine.Data.dll
+C:\Users\Casey\Documents\Visual Studio 2015\Projects\SearchEngine\SearchEngine.Data\bin\Debug\SearchEngine.Data.pdb
+C:\Users\Casey\Documents\Visual Studio 2015\Projects\SearchEngine\SearchEngine.Data\bin\Debug\EntityFramework.dll
+C:\Users\Casey\Documents\Visual Studio 2015\Projects\SearchEngine\SearchEngine.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Casey\Documents\Visual Studio 2015\Projects\SearchEngine\SearchEngine.Data\bin\Debug\EntityFramework.xml
+C:\Users\Casey\Documents\Visual Studio 2015\Projects\SearchEngine\SearchEngine.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Casey\Documents\Visual Studio 2015\Projects\SearchEngine\SearchEngine.Data\obj\Debug\SearchEngine.Data.dll
+C:\Users\Casey\Documents\Visual Studio 2015\Projects\SearchEngine\SearchEngine.Data\obj\Debug\SearchEngine.Data.pdb

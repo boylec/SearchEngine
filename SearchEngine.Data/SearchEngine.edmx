@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SearchEngineModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Url">
+          <Key>
+            <PropertyRef Name="UrlId" />
+          </Key>
+          <Property Name="UrlId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UrlString" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Word">
+          <Key>
+            <PropertyRef Name="WordId" />
+          </Key>
+          <Property Name="WordId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WordString" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WordUrlAssociation">
+          <Key>
+            <PropertyRef Name="AssociationId" />
+          </Key>
+          <Property Name="AssociationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WordId" Type="int" Nullable="false" />
+          <Property Name="UrlId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__WordUrlAs__UrlId__164452B1">
+          <End Role="Url" Type="Self.Url" Multiplicity="1" />
+          <End Role="WordUrlAssociation" Type="Self.WordUrlAssociation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Url">
+              <PropertyRef Name="UrlId" />
+            </Principal>
+            <Dependent Role="WordUrlAssociation">
+              <PropertyRef Name="UrlId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__WordUrlAs__WordI__15502E78">
+          <End Role="Word" Type="Self.Word" Multiplicity="1" />
+          <End Role="WordUrlAssociation" Type="Self.WordUrlAssociation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Word">
+              <PropertyRef Name="WordId" />
+            </Principal>
+            <Dependent Role="WordUrlAssociation">
+              <PropertyRef Name="WordId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SearchEngineModelStoreContainer">
+          <EntitySet Name="Url" EntityType="Self.Url" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Word" EntityType="Self.Word" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WordUrlAssociation" EntityType="Self.WordUrlAssociation" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__WordUrlAs__UrlId__164452B1" Association="Self.FK__WordUrlAs__UrlId__164452B1">
+            <End Role="Url" EntitySet="Url" />
+            <End Role="WordUrlAssociation" EntitySet="WordUrlAssociation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__WordUrlAs__WordI__15502E78" Association="Self.FK__WordUrlAs__WordI__15502E78">
+            <End Role="Word" EntitySet="Word" />
+            <End Role="WordUrlAssociation" EntitySet="WordUrlAssociation" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SearchEngineModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SearchEngineEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Urls" EntityType="SearchEngineModel.Url" />
+          <EntitySet Name="Words" EntityType="SearchEngineModel.Word" />
+          <EntitySet Name="WordUrlAssociations" EntityType="SearchEngineModel.WordUrlAssociation" />
+          <AssociationSet Name="FK__WordUrlAs__UrlId__164452B1" Association="SearchEngineModel.FK__WordUrlAs__UrlId__164452B1">
+            <End Role="Url" EntitySet="Urls" />
+            <End Role="WordUrlAssociation" EntitySet="WordUrlAssociations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__WordUrlAs__WordI__15502E78" Association="SearchEngineModel.FK__WordUrlAs__WordI__15502E78">
+            <End Role="Word" EntitySet="Words" />
+            <End Role="WordUrlAssociation" EntitySet="WordUrlAssociations" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Url">
+          <Key>
+            <PropertyRef Name="UrlId" />
+          </Key>
+          <Property Name="UrlId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UrlString" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="WordUrlAssociations" Relationship="SearchEngineModel.FK__WordUrlAs__UrlId__164452B1" FromRole="Url" ToRole="WordUrlAssociation" />
+        </EntityType>
+        <EntityType Name="Word">
+          <Key>
+            <PropertyRef Name="WordId" />
+          </Key>
+          <Property Name="WordId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WordString" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="WordUrlAssociations" Relationship="SearchEngineModel.FK__WordUrlAs__WordI__15502E78" FromRole="Word" ToRole="WordUrlAssociation" />
+        </EntityType>
+        <EntityType Name="WordUrlAssociation">
+          <Key>
+            <PropertyRef Name="AssociationId" />
+          </Key>
+          <Property Name="AssociationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Url" Relationship="SearchEngineModel.FK__WordUrlAs__UrlId__164452B1" FromRole="WordUrlAssociation" ToRole="Url" />
+          <NavigationProperty Name="Word" Relationship="SearchEngineModel.FK__WordUrlAs__WordI__15502E78" FromRole="WordUrlAssociation" ToRole="Word" />
+        </EntityType>
+        <Association Name="FK__WordUrlAs__UrlId__164452B1">
+          <End Type="SearchEngineModel.Url" Role="Url" Multiplicity="1" />
+          <End Type="SearchEngineModel.WordUrlAssociation" Role="WordUrlAssociation" Multiplicity="*" />
+        </Association>
+        <Association Name="FK__WordUrlAs__WordI__15502E78">
+          <End Type="SearchEngineModel.Word" Role="Word" Multiplicity="1" />
+          <End Type="SearchEngineModel.WordUrlAssociation" Role="WordUrlAssociation" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SearchEngineModelStoreContainer" CdmEntityContainer="SearchEngineEntities">
+          <EntitySetMapping Name="Urls">
+            <EntityTypeMapping TypeName="SearchEngineModel.Url">
+              <MappingFragment StoreEntitySet="Url">
+                <ScalarProperty Name="UrlString" ColumnName="UrlString" />
+                <ScalarProperty Name="UrlId" ColumnName="UrlId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Words">
+            <EntityTypeMapping TypeName="SearchEngineModel.Word">
+              <MappingFragment StoreEntitySet="Word">
+                <ScalarProperty Name="WordString" ColumnName="WordString" />
+                <ScalarProperty Name="WordId" ColumnName="WordId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WordUrlAssociations">
+            <EntityTypeMapping TypeName="SearchEngineModel.WordUrlAssociation">
+              <MappingFragment StoreEntitySet="WordUrlAssociation">
+                <ScalarProperty Name="AssociationId" ColumnName="AssociationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="FK__WordUrlAs__UrlId__164452B1" TypeName="SearchEngineModel.FK__WordUrlAs__UrlId__164452B1" StoreEntitySet="WordUrlAssociation">
+            <EndProperty Name="WordUrlAssociation">
+              <ScalarProperty Name="AssociationId" ColumnName="AssociationId" />
+            </EndProperty>
+            <EndProperty Name="Url">
+              <ScalarProperty Name="UrlId" ColumnName="UrlId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK__WordUrlAs__WordI__15502E78" TypeName="SearchEngineModel.FK__WordUrlAs__WordI__15502E78" StoreEntitySet="WordUrlAssociation">
+            <EndProperty Name="WordUrlAssociation">
+              <ScalarProperty Name="AssociationId" ColumnName="AssociationId" />
+            </EndProperty>
+            <EndProperty Name="Word">
+              <ScalarProperty Name="WordId" ColumnName="WordId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
