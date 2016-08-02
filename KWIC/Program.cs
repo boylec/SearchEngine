@@ -251,6 +251,8 @@ namespace KWIC
                         DbContext.SaveChanges();
 
                         Console.WriteLine($"Association saved. URL: {association.Url.UrlString}, Word: {association.Word.WordString}");
+
+                        //
                     }
                 }
             }
