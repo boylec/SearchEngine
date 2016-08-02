@@ -5,6 +5,6 @@ C:\Users\Casey\Documents\Visual Studio 2015\Projects\SearchEngine\SearchEngine.D
 C:\Users\Casey\Documents\Visual Studio 2015\Projects\SearchEngine\SearchEngine.Data\bin\Release\EntityFramework.SqlServer.dll
 C:\Users\Casey\Documents\Visual Studio 2015\Projects\SearchEngine\SearchEngine.Data\bin\Release\EntityFramework.xml
 C:\Users\Casey\Documents\Visual Studio 2015\Projects\SearchEngine\SearchEngine.Data\bin\Release\EntityFramework.SqlServer.xml
-C:\Users\Casey\Documents\Visual Studio 2015\Projects\SearchEngine\SearchEngine.Data\obj\Release\SearchEngine.Data.csprojResolveAssemblyReference.cache
 C:\Users\Casey\Documents\Visual Studio 2015\Projects\SearchEngine\SearchEngine.Data\obj\Release\SearchEngine.Data.dll
 C:\Users\Casey\Documents\Visual Studio 2015\Projects\SearchEngine\SearchEngine.Data\obj\Release\SearchEngine.Data.pdb
+C:\Users\Casey\Documents\Visual Studio 2015\Projects\SearchEngine\SearchEngine.Data\obj\Release\SearchEngine.Data.csprojResolveAssemblyReference.cache

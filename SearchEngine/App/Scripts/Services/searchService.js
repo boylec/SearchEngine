@@ -24,6 +24,20 @@
             return deferral.promise;
         };
 
+        fns.getSuggestion = function (searchInput) {
+            var deferral = $q.defer();
+
+            $http.post("api/Search/GetSuggestion", searchInput, null)
+                .then(
+                    function (response) {
+                        deferral.resolve(response.data);
+                    },
+                    function (response) {
+                        deferral.reject(response);
+                    });
+            return deferral.promise;
+        };
+
         return fns;
     }
 })();

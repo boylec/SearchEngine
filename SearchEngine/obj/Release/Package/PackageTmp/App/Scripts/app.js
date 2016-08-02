@@ -1,5 +1,5 @@
 ﻿(function () {
-    var app = angular.module('SearchEngine', ['ngRoute', 'ngSanitize']);
+    var app = angular.module('SearchEngine', ['ngRoute', 'ngSanitize', 'ngAnimate','ui.bootstrap']);
 
     app.config(function ($routeProvider) {
         $routeProvider

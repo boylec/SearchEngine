@@ -155,14 +155,19 @@ namespace KWIC
             private static Word[] GetWords(out string url)
             {
                 url = null;
+
                 if ((_input = _reader.ReadLine()) == null)
                 {
                     return null;
                 }
 
-                url = _input;
+                var parsed = LineParser.Parse(_input).ToList();
 
-                var tokens = LineParser.Parse(_input);
+                url = parsed[0];
+
+                parsed.RemoveAt(0);
+
+                var tokens = parsed.ToArray();
 
                 var words = new Word[tokens.Length];
 
@@ -245,7 +250,7 @@ namespace KWIC
                         
                         DbContext.SaveChanges();
 
-                        Console.WriteLine($"Association saved. URL: {association.Url}, Word: {association.Word}");
+                        Console.WriteLine($"Association saved. URL: {association.Url.UrlString}, Word: {association.Word.WordString}");
                     }
                 }
             }
@@ -255,8 +260,8 @@ namespace KWIC
         {
             public static string[] Parse(string input)
             {
-                
-                throw new NotImplementedException();
+                var parsed = input.Split(',');
+                return parsed;
             }
         }
     }

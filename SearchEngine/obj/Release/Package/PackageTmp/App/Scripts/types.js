@@ -1,5 +1,6 @@
 ﻿function SearchInput() {
     this.searchString = "";
+    this.operator = "or";
 }
 
 function SearchResult() {

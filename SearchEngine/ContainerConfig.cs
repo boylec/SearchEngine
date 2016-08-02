@@ -9,7 +9,7 @@ namespace SearchEngine
         public static IWindsorContainer ConfigureContainer(IWindsorContainer container)
         {
             var dbContextFactory = new SearchEngineContextFactory();
-            container.Register(Component.For<SearchEngineEntities>().UsingFactoryMethod(dbContextFactory.Create));
+            container.Register(Component.For<SearchEngineEntities>().UsingFactoryMethod(dbContextFactory.Create).LifestylePerWebRequest());
             return container;
         }
     }

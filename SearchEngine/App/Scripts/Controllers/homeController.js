@@ -9,6 +9,7 @@
     function homeController($scope, searchService) {
         $scope.searchInput = new SearchInput();
         $scope.searchResult = new SearchResult();
+        $scope.suggestions = [];
         $scope.searchPerformed = false;
         $scope.searchError = null;
         $scope.doSearch = function () {
@@ -23,6 +24,16 @@
                     $scope.searchError = error.data.Message;
                     $scope.searchPerformed = true;
                 });
+        }
+
+        $scope.autoComplete = function() {
+            return searchService.getSuggestion($scope.searchInput)
+                .then(function (result) {
+                        return result;
+                    },
+                    function(error) {
+
+                    });
         }
     }
 })();

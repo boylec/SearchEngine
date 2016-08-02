@@ -8,5 +8,6 @@ namespace SearchEngine.Models
     public class SearchInput
     {
         public string SearchString { get; set; }
+        public string Operator { get; set; }
     }
 }

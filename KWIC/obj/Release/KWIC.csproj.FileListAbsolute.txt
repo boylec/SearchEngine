@@ -1,0 +1,12 @@
+C:\Users\Casey\Documents\Visual Studio 2015\Projects\SearchEngine\KWIC\bin\Release\KWIC.exe.config
+C:\Users\Casey\Documents\Visual Studio 2015\Projects\SearchEngine\KWIC\bin\Release\KWIC.exe
+C:\Users\Casey\Documents\Visual Studio 2015\Projects\SearchEngine\KWIC\bin\Release\KWIC.pdb
+C:\Users\Casey\Documents\Visual Studio 2015\Projects\SearchEngine\KWIC\bin\Release\EntityFramework.dll
+C:\Users\Casey\Documents\Visual Studio 2015\Projects\SearchEngine\KWIC\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Casey\Documents\Visual Studio 2015\Projects\SearchEngine\KWIC\bin\Release\SearchEngine.Data.dll
+C:\Users\Casey\Documents\Visual Studio 2015\Projects\SearchEngine\KWIC\bin\Release\SearchEngine.Data.pdb
+C:\Users\Casey\Documents\Visual Studio 2015\Projects\SearchEngine\KWIC\bin\Release\EntityFramework.xml
+C:\Users\Casey\Documents\Visual Studio 2015\Projects\SearchEngine\KWIC\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Casey\Documents\Visual Studio 2015\Projects\SearchEngine\KWIC\obj\Release\KWIC.csprojResolveAssemblyReference.cache
+C:\Users\Casey\Documents\Visual Studio 2015\Projects\SearchEngine\KWIC\obj\Release\KWIC.exe
+C:\Users\Casey\Documents\Visual Studio 2015\Projects\SearchEngine\KWIC\obj\Release\KWIC.pdb
